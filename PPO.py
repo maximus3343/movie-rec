@@ -44,6 +44,7 @@ class ActorCritic(nn.Module):
             nn.ReLU(),
             nn.Linear(hidden_size, hidden_size),
             nn.ReLU(),
+            nn.Dropout(p=0.2),
             nn.Linear(hidden_size, out_features),
             nn.Softmax(dim=-1)  # Applied on last dim.
         )  # Outputs stochastic policy over set of movies.
@@ -53,6 +54,7 @@ class ActorCritic(nn.Module):
             nn.ReLU(),
             nn.Linear(hidden_size, hidden_size),
             nn.ReLU(),
+            nn.Dropout(p=0.2),
             nn.Linear(hidden_size, 1),
         )  # Outputs state-value V(S).
 
